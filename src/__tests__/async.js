@@ -25,19 +25,3 @@ test("loads and displays greeting", async () => {
 
   expect(screen.getByRole("button")).toHaveAttribute("disabled");
 });
-
-test("handles server error", async () => {
-  server.use(
-    rest.get("/greeting", (req, res, ctx) => {
-      return res(ctx.status(500));
-    })
-  );
-
-  render(<FetchGreeting />);
-
-  userEvent.click(screen.getByText("Load Greeting"));
-
-  await screen.findByRole("alert", { name: "Oops, failed to fetch!" });
-
-  expect(screen.getByRole("button")).not.toHaveAttribute("disabled");
-});
