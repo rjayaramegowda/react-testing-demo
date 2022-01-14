@@ -1,11 +1,11 @@
 import React from "react";
-import Counter from "./Counter";
+import Users from "./Users";
 
 function App(props) {
   return (
     <div className="container mt-5">
       <h1>Learn React</h1>
-      <Counter />
+      <Users />
     </div>
   );
 }
